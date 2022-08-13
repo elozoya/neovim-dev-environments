@@ -12,9 +12,12 @@ if ! id -u "$user" >/dev/null 2>&1 ; then
   exit 1
 fi
 
+# default version is go1.19
+version=${1:-1.19}
+
 # uninstall previous
 [ -d ~/.config/nvim ] && rm -rf /usr/local/go
 
 # download and install
-wget --directory-prefix=/tmp https://go.dev/dl/go1.19.linux-amd64.tar.gz
-tar -C /usr/local -xzf /tmp/go1.19.linux-amd64.tar.gz
+wget --directory-prefix=/tmp https://go.dev/dl/go$version.linux-amd64.tar.gz
+tar -C /usr/local -xzf /tmp/go$version.linux-amd64.tar.gz
