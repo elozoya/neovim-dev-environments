@@ -20,3 +20,6 @@ DONE
 - rename laravel8 folder for 8.0
 - add dev environment php 7.4
 - add dev environment php 8.1
+- rename bin and bootstrap folders to examples
+- explain that the bin/build-dev-environment.sh, bin/run-dev-environment.sh and boostrap/boostrap-container.sh
+  are just example scripts. Users must implement their own algorithm.

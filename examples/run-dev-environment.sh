@@ -43,11 +43,11 @@ params=(
 params+=(
     # transfer the recommend vim configuration for the environment
     -v $ROOT_DIR/src/ubuntu/environments:/neovim-dev-environments/environments
-    # transfer the boostrap scripts
-    -v $ROOT_DIR/bootstrap:/home/docker/bootstrap
+    # transfer the boostrap script
+    -v $ROOT_DIR/examples:/home/docker/.bootstrap-dev-environment
     # --rm -it neovim-7.2/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-test/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-7.2/$DEV ./bootstrap/bootstrap-container.sh
-    --rm -it "neovim/${DEV}${VERSION}" ./bootstrap/bootstrap-container.sh
+    --rm -it "neovim/${DEV}${VERSION}" ./.bootstrap-dev-environment/bootstrap-container.sh
 )
 docker run "${params[@]}"
