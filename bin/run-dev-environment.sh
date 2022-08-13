@@ -5,7 +5,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROOT_DIR="$(realpath "${SCRIPT_DIR}/..")"
 
 DEV=$1
-PORT=$2
+VERSION=$2
+PORT=$3
 
 if [ -z "$DEV" ]; then
     echo "No dev environment specified"
@@ -47,6 +48,6 @@ params+=(
     # --rm -it neovim-7.2/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-test/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-7.2/$DEV ./bootstrap/bootstrap-container.sh
-    --rm -it neovim/$DEV ./bootstrap/bootstrap-container.sh
+    --rm -it "neovim/${DEV}${VERSION}" ./bootstrap/bootstrap-container.sh
 )
 docker run "${params[@]}"

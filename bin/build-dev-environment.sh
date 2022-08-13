@@ -5,6 +5,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROOT_DIR="$(realpath "${SCRIPT_DIR}/..")"
 
 DEV=$1
+VERSION=$2
 
 if [ -z "$DEV" ]; then
     echo "No dev environment specified"
@@ -17,9 +18,10 @@ available_environments=(
   go
 )
 
-DOCKER_IMAGE_TAG=neovim/$DEV
+DOCKER_IMAGE_TAG="neovim/${DEV}${VERSION}"
 params=(
     --build-arg NEOVIM_DEV_ENVIRONMENT=$DEV
+    --build-arg NEOVIM_DEV_ENVIRONMENT_VERSION=$VERSION
     -t $DOCKER_IMAGE_TAG
     -f $ROOT_DIR/src/ubuntu/Dockerfile
     $ROOT_DIR/src/ubuntu
