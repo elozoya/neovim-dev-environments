@@ -12,5 +12,9 @@
 [ ! -f ~/.gitconfig ] && ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 [ ! -f ~/.tmux.conf ] && ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
-# start zsh session
-zsh
+# start shell session
+if [ ! -z $SHELL ]; then
+  $SHELL
+else
+  bash
+fi
