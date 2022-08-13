@@ -46,6 +46,7 @@ params+=(
     -v $ROOT_DIR/bootstrap:/home/docker/bootstrap
     # --rm -it neovim-7.2/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-test/plain ./bootstrap/bootstrap-container.sh
-    --rm -it neovim-7.2/$DEV ./bootstrap/bootstrap-container.sh
+    # --rm -it neovim-7.2/$DEV ./bootstrap/bootstrap-container.sh
+    --rm -it neovim/$DEV ./bootstrap/bootstrap-container.sh
 )
 docker run "${params[@]}"

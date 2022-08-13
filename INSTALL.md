@@ -6,39 +6,54 @@
     git clone url
     ```
 
-# Build environment
+# Build environment using the bin/build-dev-environment.sh script
 
 1. Plain environment
     ```sh
-    docker build -t neovim-7.2/plain -f src/ubuntu/Dockerfile src/ubuntu
-    ```
-2. PHP environment
-    ```sh
-    docker build --build-arg NEOVIM_DEV_ENVIRONMENT=php -t neovim-7.2/php -f src/ubuntu/Dockerfile src/ubuntu
-    ```
-3. Go environment
-    ```sh
-    docker build --build-arg NEOVIM_DEV_ENVIRONMENT=go -t neovim-7.2/go -f src/ubuntu/Dockerfile src/ubuntu
-    ```
-
-# Run environment using the bin/run-container.sh script
-
-1. Plain environment
-    ```sh
-    ./bin/run-container.sh plain
+    ./bin/build-dev-environment.sh plain
     ```
 2. PHP
     ```sh
-    ./bin/run-container.sh php
+    ./bin/build-dev-environment.sh php
     ```
 3. Go
     ```sh
-    ./bin/run-container.sh go
-    # run container with a port
-    ./bin/run-container.sh go 80
+    ./bin/build-dev-environment.sh go
     ```
 
-# Run environment with docker
+# Run environment using the bin/run-dev-environment.sh script
+
+1. Plain environment
+    ```sh
+    ./bin/run-dev-environment.sh plain
+    ```
+2. PHP
+    ```sh
+    ./bin/run-dev-environment.sh php
+    ```
+3. Go
+    ```sh
+    ./bin/run-dev-environment.sh go
+    # run container with a port
+    ./bin/run-dev-environment.sh go 80
+    ```
+
+# Build environment manually with Docker
+
+1. Plain environment
+    ```sh
+    docker build -t neovim/plain -f src/ubuntu/Dockerfile src/ubuntu
+    ```
+2. PHP environment
+    ```sh
+    docker build --build-arg NEOVIM_DEV_ENVIRONMENT=php -t neovim/php -f src/ubuntu/Dockerfile src/ubuntu
+    ```
+3. Go environment
+    ```sh
+    docker build --build-arg NEOVIM_DEV_ENVIRONMENT=go -t neovim/go -f src/ubuntu/Dockerfile src/ubuntu
+    ```
+
+# Run environment manually with docker
 
 1. Plain environment
     ```sh
