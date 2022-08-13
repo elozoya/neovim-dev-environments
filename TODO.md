@@ -1,6 +1,5 @@
 TODO
 
-- rename laravel8 folder for 8.0
 - add dev environment php 7.4
 - add dev environment php 8.1
 - coc config file
@@ -20,3 +19,4 @@ DONE
 - add support for user to login with bash
 - add script bin/build-environment.sh
 - fix bootstrap script to run bash or zsh
+- rename laravel8 folder for 8.0
