@@ -5,7 +5,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-version=$1
+# default version is php8.0
+version=${1:-8.0}
 
 # install php
 add-apt-repository -y ppa:ondrej/php
