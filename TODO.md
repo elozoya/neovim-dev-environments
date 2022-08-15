@@ -2,8 +2,6 @@ TODO
 
 - coc config file
 - create GitHub repository elozoya/neovim-dev-environments
-- explain that the bin/build-dev-environment.sh, bin/run-dev-environment.sh and boostrap/boostrap-container.sh
-  are just example scripts. Users must implement their own algorithm.
 
 DONE
 
@@ -23,3 +21,7 @@ DONE
 - rename bin and bootstrap folders to examples
 - explain that the bin/build-dev-environment.sh, bin/run-dev-environment.sh and boostrap/boostrap-container.sh
   are just example scripts. Users must implement their own algorithm.
+- add examples for the dotfiles
+- add README.md
+- add INSTALL.md (build and run without a container configuration)
+- add INSTALL_EXAMPLES.md (build and run with a container configuration)
