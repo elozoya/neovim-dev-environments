@@ -13,23 +13,25 @@ if [ -z "$DEV" ]; then
     exit 1
 fi
 
+DEVFULL=$DEV$VERSION
+
 # Keep zsh history
-[ ! -d $ROOT_DIR/.data/ubuntu/$DEV/.zsh ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEV/.zsh
+[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh
 # Keep vim plugs
-[ ! -d $ROOT_DIR/.data/ubuntu/$DEV/.vim ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEV/.vim
+[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim
 # [ ! -d ./.data/ubuntu/plain/.vim/plugged ] && mkdir -p ./.data/ubuntu/plain/.vim/plugged
 # Keep coc extensions
-[ ! -d $ROOT_DIR/.data/ubuntu/$DEV/.config ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEV/.config
+[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.config ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.config
 # [ ! -d ./.data/ubuntu/plain/.config/coc/extensions ] && mkdir -p ./.data/ubuntu/plain/.config/coc/extensions
 
 # setting up volumes
 params=(
     # keep zsh history
-    -v $ROOT_DIR/.data/ubuntu/$DEV/.zsh:/home/docker/.zsh
+    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh:/home/docker/.zsh
     # keep vim plugins
-    -v $ROOT_DIR/.data/ubuntu/$DEV/.vim:/home/docker/.vim
+    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim:/home/docker/.vim
     # keep coc extensions
-    -v $ROOT_DIR/.data/ubuntu/$DEV/.config:/home/docker/.config
+    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.config:/home/docker/.config
     # use custom dotfiles
     -v $ROOT_DIR/examples/dotfiles:/home/docker/dotfiles
     # source code to edit
@@ -47,7 +49,7 @@ params+=(
     -v $ROOT_DIR/examples:/home/docker/.bootstrap-dev-environment
     # --rm -it neovim-7.2/plain ./bootstrap/bootstrap-container.sh
     # --rm -it neovim-test/plain ./bootstrap/bootstrap-container.sh
-    # --rm -it neovim-7.2/$DEV ./bootstrap/bootstrap-container.sh
-    --rm -it "neovim/${DEV}${VERSION}" ./.bootstrap-dev-environment/bootstrap-container.sh
+    # --rm -it neovim-7.2/$DEVFULL ./bootstrap/bootstrap-container.sh
+    --rm -it "neovim/$DEVFULL" ./.bootstrap-dev-environment/bootstrap-container.sh
 )
 docker run "${params[@]}"
