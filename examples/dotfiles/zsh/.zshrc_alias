@@ -1,0 +1,13 @@
+# Custom
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# create tmux alias if tmux is installed
+# fix tmux and nvim colors
+command -v tmux &> /dev/null && alias tmux='tmux -2'

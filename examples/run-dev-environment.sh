@@ -31,7 +31,7 @@ params=(
     # keep coc extensions
     -v $ROOT_DIR/.data/ubuntu/$DEV/.config:/home/docker/.config
     # use custom dotfiles
-    -v ~/Code/dotfiles:/home/docker/dotfiles
+    -v $ROOT_DIR/examples/dotfiles:/home/docker/dotfiles
     # source code to edit
     -v ~/Code:/home/docker/Code
 )

@@ -4,6 +4,11 @@ func! s:installCocExtension(extension)
     endif
 endfunc
 
+" installing coc extensions using the global variable g:coc_global_extensions
+if !exists("g:coc_global_extensions")
+  let g:coc_global_extensions = []
+endif
+
 " plugs
 call s:installCocExtension("coc-phpls")
 call s:installCocExtension("coc-html")

@@ -40,3 +40,6 @@ tags
 
 # Custom
 .data
+examples/dotfiles/zsh/plugins/powerlevel10k/
+examples/dotfiles/zsh/plugins/zsh-autosuggestions/
+examples/dotfiles/zsh/plugins/zsh-syntax-highlighting/
