@@ -18,20 +18,18 @@ DEVFULL=$DEV$VERSION
 # Keep zsh history
 [ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh
 # Keep vim plugs
-[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim
-# [ ! -d ./.data/ubuntu/plain/.vim/plugged ] && mkdir -p ./.data/ubuntu/plain/.vim/plugged
+[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim/plugged ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim/plugged
 # Keep coc extensions
-[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.config ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.config
-# [ ! -d ./.data/ubuntu/plain/.config/coc/extensions ] && mkdir -p ./.data/ubuntu/plain/.config/coc/extensions
+[ ! -d $ROOT_DIR/.data/ubuntu/$DEVFULL/.config/coc/extensions ] && mkdir -p $ROOT_DIR/.data/ubuntu/$DEVFULL/.config/coc/extensions
 
 # setting up volumes
 params=(
     # keep zsh history
     -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.zsh:/home/docker/.zsh
     # keep vim plugins
-    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim:/home/docker/.vim
+    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.vim/plugged:/home/docker/.vim/plugged
     # keep coc extensions
-    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.config:/home/docker/.config
+    -v $ROOT_DIR/.data/ubuntu/$DEVFULL/.config/coc/extensions:/home/docker/.config/coc/extensions
     # use custom dotfiles
     -v $ROOT_DIR/examples/dotfiles:/home/docker/dotfiles
     # source code to edit

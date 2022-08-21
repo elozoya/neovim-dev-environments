@@ -47,4 +47,8 @@ WORKDIR "$HOME"
 
 RUN $NEOVIM_DEV_ENVIRONMENTS_ROOT/common/install_vim_plug.sh
 
+# These empty folders allow to keep the vim plugs and the coc extensions in volumes with the correct user permissions
+RUN mkdir -p $HOME/.vim/plugged \
+  && mkdir -p $HOME/.config/coc/extensions
+
 CMD ["sh", "-c", "$SHELL"]
